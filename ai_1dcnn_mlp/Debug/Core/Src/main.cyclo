@@ -1,0 +1,17 @@
+../Core/Src/main.c:50:6:W5500_Select	1
+../Core/Src/main.c:51:6:W5500_Deselect	1
+../Core/Src/main.c:52:6:HAL_SPI_TxCpltCallback	1
+../Core/Src/main.c:53:6:HAL_SPI_RxCpltCallback	1
+../Core/Src/main.c:54:6:W5500_ReadBuff_OS	1
+../Core/Src/main.c:55:6:W5500_WriteBuff_OS	1
+../Core/Src/main.c:56:9:W5500_ReadByte	1
+../Core/Src/main.c:57:6:W5500_WriteByte	1
+../Core/Src/main.c:59:5:main	1
+../Core/Src/main.c:78:6:StartTaskRouter	14
+../Core/Src/main.c:161:6:SystemClock_Config	1
+../Core/Src/main.c:184:13:MX_SPI1_Init	1
+../Core/Src/main.c:221:13:MX_GPIO_Init	1
+../Core/Src/main.c:247:13:MX_DMA_Init	1
+../Core/Src/main.c:255:6:StartDefaultTask	1
+../Core/Src/main.c:256:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:257:6:Error_Handler	1
