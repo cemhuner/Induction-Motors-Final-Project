@@ -1,30 +1,20 @@
-This project contains scientific contexts related to induction motors, embedded systems and deep learning.
+This project combines the domains of induction motors, embedded systems, and deep learning.
 
-The aim of this project, detecting induction motor faults through runnig a deep learning model on an embedded device.
-Considering the energy efficiency and cost of embedded devices, it would be quite smart to use them in places where massive SCADA systems cannot be installed or are too expensive to install.
-Although the project aims to troubleshoot malfunctions in induction motors, the real goal here is to combine data-driven engineering with artificial intelligence and adapt it to embedded systems.
-The project can be viewed from a broader perspective, as fault detection and predictive maintenance in individual systems.
-Considering the features listed above, the method proposed in this project can be easily applied to single devices with limited power capacities, such as SATELLITES and ROVERS.
+The primary aim of this project is to detect induction motor faults by running a deep learning model on an embedded device. Considering the energy efficiency and cost-effectiveness of embedded devices, this proposed solution is highly advantageous for environments where massive SCADA systems are impractical or too expensive to install.
+Although the project focuses on detecting malfunctions in induction motors, the broader goal is to combine data-driven engineering with artificial intelligence and adapt it for embedded systems. From a wider perspective, this project serves as a framework for fault detection and predictive maintenance in standalone systems. Considering these features, the proposed method can be easily applied to individual devices with limited power capacities, such as satellites and rovers.
 
+This project aims to accomplish two main milestones:
 
-This project is aiming to accomplish two milestone:
-1-Detecting induction motor faults (done)
-2-Running a deep learning model on an embedded device (done)
+1. Detecting induction motor faults (Done)
 
-By achieving these two key concept, almost 90% of the project is done.
-However, the base structure, RTOS tasks, data transferring, buffering and many more concepts must be reviewed.
-The elapsed time that device detecting induction motor faults did not fulfill the project requirements so far. It is working way slower than expected. (Like 0.125 detection/second)
-Semaphore and mutex optimization and deep learning model optimization is going to solve most of the performance problems (pure subjective opinion).
+2. Running a deep learning model on an embedded device (Done)
 
+By achieving these two key concepts, almost 90% of the project is complete. However, the base structure, RTOS tasks, data transferring, buffering, and several other components still need to be reviewed.
+Currently, the fault detection inference time does not meet the project requirements. It is running much slower than expected (approximately 0.125 detections/second). Semaphore/mutex optimization and deep learning model quantization/optimization are expected to resolve most of these performance bottlenecks.
 
-The list of some major encountered problems while developing this project:
-1- In STM32CUBEIDE version 1.3.1, DSP Library is not matching with HAL Library. So you have to add their directories and files manually. 
-   Thank God, I have been installed the files before this happened.
-   As you can reckon, this took a lot of time to detect. (Approx. one week)
-2- In STM32CUBEIDE version 1.3.1, despite you linked DMA request to SPI communication in CubeMX, the code generation tool won't link them in the definition functions.
-   Due to this, DMA is never being called in the code while you were assuming it is called. If you are not careful enough, this took also a lot of time to detect. 
-   So, you have to link them manually. 
-3- In STM32CUBEIDE version 1.3.1, sometimes, SPI DMA ISR might be corrupted or blank. I don't know why but this happened just one time while developing. 
-   The solution, again, write the ISR manually and it will be fixed.
-4- RTOS Task priorities, queues and stack memories are working with just specific settings (as you might see in the code). 
-   As an engineer, I can say that, purely intuitive, there is a bottleneck here.   
+Major problems encountered during development:
+
+1. Incompatible Libraries: In STM32CUBEIDE version 1.3.1, the DSP Library does not perfectly match the HAL Library. You have to add their directories and files manually. Fortunately, I had installed the files beforehand, but as you can imagine, identifying this issue took a significant amount of time (approx. one week).
+2. DMA Linkage Failure: In STM32CUBEIDE version 1.3.1, even if you link the DMA request to SPI communication in CubeMX, the code generation tool sometimes fails to link them in the definition functions. Because of this, the DMA is never actually called in the code. This requires careful debugging and manual linkage to fix.
+3. Corrupted SPI DMA ISR: Also in version 1.3.1, the SPI DMA ISR might generate corrupted or blank. This happened once during development. The solution is to write the ISR manually.
+4. RTOS Bottlenecks: RTOS Task priorities, queues, and stack memories are only functioning smoothly with very specific settings (as seen in the code). Intuitively, there is a bottleneck here that requires further debugging.
