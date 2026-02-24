@@ -30,7 +30,9 @@ Files and their functions in this project:
 
 
 
-<img width="1199" height="826" alt="gui61" src="https://github.com/user-attachments/assets/de09847d-cb7b-420c-854a-2b15a5ef540f" />
+<img width="1000" height="700" alt="gui61" src="https://github.com/user-attachments/assets/de09847d-cb7b-420c-854a-2b15a5ef540f" />
+
+<img width="1000" height="700" alt="gui21" src="https://github.com/user-attachments/assets/999f8fb8-81ff-4606-9d9f-8be11dee91cc" />
 
 
 
