@@ -21,5 +21,19 @@ Major problems encountered during development:
 
 Files and their functions in this project:
 1. ai_1dcnn_mlp: This file contains the deep learning inference code. A hybrid model that contains 1D-CNN (1D Convolutional Neural Network) and MLP (Multi-Layer Perceptron) is chosen to inference. 1D-CNN is for spectral features and MLP is for time series features. If model only consist of MLP, fault detection rate is dropped drastically. Because MLP is not effective while handling spectral features. Additionally, using only MLP requires too much FLASH memory and RAM. So hybrid model is much better.
-2. f401_fft_rtos_deneme_nohaldsp: This file contains the heavy tasks. 
-   
+2. f401_fft_rtos_deneme_nohaldsp: This file contains the heavy tasks. There are 4 main tasks: TX, RX, DSP and data transferring. RX task is handling received data from simulation. DSP task is responsible for heavy tasks such as FFT and filtering (there is no filtering in current state). TX task transfers the processed data from MCU to PC.
+
+   A simple schematic that simply refers the main structure:
+
+   SIMULATION(PC) --> STM32F401(DSP) --> STM32F411(Inference) --> GUI(PC)
+   SIMULATION(PC) --> STM32F401(DSP) --> Full spectral data (for debugging) --> GUI(PC)
+
+
+
+<img width="1199" height="826" alt="gui61" src="https://github.com/user-attachments/assets/de09847d-cb7b-420c-854a-2b15a5ef540f" />
+
+
+
+
+
+
