@@ -18,3 +18,8 @@ Major problems encountered during development:
 2. DMA Linkage Failure: In STM32CUBEIDE version 1.3.1, even if you link the DMA request to SPI communication in CubeMX, the code generation tool sometimes fails to link them in the definition functions. Because of this, the DMA is never actually called in the code. This requires careful debugging and manual linkage to fix.
 3. Corrupted SPI DMA ISR: Also in version 1.3.1, the SPI DMA ISR might generate corrupted or blank. This happened once during development. The solution is to write the ISR manually.
 4. RTOS Bottlenecks: RTOS Task priorities, queues, and stack memories are only functioning smoothly with very specific settings (as seen in the code). Intuitively, there is a bottleneck here that requires further debugging.
+
+Files and their functions in this project:
+1. ai_1dcnn_mlp: This file contains the deep learning inference code. A hybrid model that contains 1D-CNN (1D Convolutional Neural Network) and MLP (Multi-Layer Perceptron) is chosen to inference. 1D-CNN is for spectral features and MLP is for time series features. If model only consist of MLP, fault detection rate is dropped drastically. Because MLP is not effective while handling spectral features. Additionally, using only MLP requires too much FLASH memory and RAM. So hybrid model is much better.
+2. f401_fft_rtos_deneme_nohaldsp: This file contains the heavy tasks. 
+   
